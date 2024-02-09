@@ -10,7 +10,12 @@
     "name": "Default",
   },
   "defaultScriptType": 1,
-  "Folders": [],
+  "Folders": [
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"_Packages","folderPath":"folders/_Packages.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Alphish","folderPath":"folders/_Packages/Alphish.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Waiter","folderPath":"folders/_Packages/Alphish/Waiter.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tasks","folderPath":"folders/_Packages/Alphish/Waiter/Tasks.yy",},
+  ],
   "IncludedFiles": [],
   "isEcma": false,
   "LibraryEmitters": [],
@@ -19,6 +24,9 @@
   },
   "resources": [
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"struct_WaiterTask","path":"scripts/struct_WaiterTask/struct_WaiterTask.yy",},},
+    {"id":{"name":"struct_WaiterUsageException","path":"scripts/struct_WaiterUsageException/struct_WaiterUsageException.yy",},},
+    {"id":{"name":"enum_WaiterTaskStatus","path":"scripts/enum_WaiterTaskStatus/enum_WaiterTaskStatus.yy",},},
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
