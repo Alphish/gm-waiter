@@ -25,7 +25,6 @@
     "IDEVersion": "2023.8.2.108",
   },
   "resources": [
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"struct_WaiterTask","path":"scripts/struct_WaiterTask/struct_WaiterTask.yy",},},
     {"id":{"name":"struct_WaiterUsageException","path":"scripts/struct_WaiterUsageException/struct_WaiterUsageException.yy",},},
     {"id":{"name":"spr_AnthillTile","path":"sprites/spr_AnthillTile/spr_AnthillTile.yy",},},
@@ -35,9 +34,10 @@
     {"id":{"name":"obj_AnthillTile","path":"objects/obj_AnthillTile/obj_AnthillTile.yy",},},
     {"id":{"name":"ctrl_AnthillGenerator","path":"objects/ctrl_AnthillGenerator/ctrl_AnthillGenerator.yy",},},
     {"id":{"name":"fnt_WaiterDemo","path":"fonts/fnt_WaiterDemo/fnt_WaiterDemo.yy",},},
+    {"id":{"name":"rm_AnthillDemo","path":"rooms/rm_AnthillDemo/rm_AnthillDemo.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_AnthillDemo","path":"rooms/rm_AnthillDemo/rm_AnthillDemo.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
