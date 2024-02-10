@@ -30,8 +30,11 @@
     {"id":{"name":"struct_WaiterUsageException","path":"scripts/struct_WaiterUsageException/struct_WaiterUsageException.yy",},},
     {"id":{"name":"spr_AnthillTile","path":"sprites/spr_AnthillTile/spr_AnthillTile.yy",},},
     {"id":{"name":"enum_WaiterTaskStatus","path":"scripts/enum_WaiterTaskStatus/enum_WaiterTaskStatus.yy",},},
+    {"id":{"name":"ctrl_AnthillDemo","path":"objects/ctrl_AnthillDemo/ctrl_AnthillDemo.yy",},},
     {"id":{"name":"struct_AnthillGeneratorTask","path":"scripts/struct_AnthillGeneratorTask/struct_AnthillGeneratorTask.yy",},},
     {"id":{"name":"obj_AnthillTile","path":"objects/obj_AnthillTile/obj_AnthillTile.yy",},},
+    {"id":{"name":"ctrl_AnthillGenerator","path":"objects/ctrl_AnthillGenerator/ctrl_AnthillGenerator.yy",},},
+    {"id":{"name":"fnt_WaiterDemo","path":"fonts/fnt_WaiterDemo/fnt_WaiterDemo.yy",},},
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
