@@ -30,6 +30,7 @@
     {"id":{"name":"struct_WaiterUsageException","path":"scripts/struct_WaiterUsageException/struct_WaiterUsageException.yy",},},
     {"id":{"name":"spr_AnthillTile","path":"sprites/spr_AnthillTile/spr_AnthillTile.yy",},},
     {"id":{"name":"enum_WaiterTaskStatus","path":"scripts/enum_WaiterTaskStatus/enum_WaiterTaskStatus.yy",},},
+    {"id":{"name":"struct_AnthillGeneratorTask","path":"scripts/struct_AnthillGeneratorTask/struct_AnthillGeneratorTask.yy",},},
     {"id":{"name":"obj_AnthillTile","path":"objects/obj_AnthillTile/obj_AnthillTile.yy",},},
   ],
   "RoomOrderNodes": [
