@@ -16,6 +16,6 @@ function WaiterUsageException(_task, _message) constructor {
     }
 }
 
-// statics initialisation
-// feather ignore GM1041
+/// statics initialisation
+/// feather ignore GM1041
 WaiterUsageException(undefined, undefined);
