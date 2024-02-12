@@ -9,6 +9,7 @@
   "instanceCreationOrder": [
     {"name":"inst_7F909EB8","path":"rooms/rm_Home/rm_Home.yy",},
     {"name":"inst_217197B3","path":"rooms/rm_Home/rm_Home.yy",},
+    {"name":"inst_4CF9915E","path":"rooms/rm_Home/rm_Home.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -21,6 +22,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Exit",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"game_end",},
           ],"rotation":0.0,"scaleX":6.0,"scaleY":2.0,"x":544.0,"y":528.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4CF9915E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Taskboard demo",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"target_room","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"rm_TaskboardDemo",},
+          ],"rotation":0.0,"scaleX":10.0,"scaleY":2.0,"x":480.0,"y":368.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":90,"gridY":90,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
