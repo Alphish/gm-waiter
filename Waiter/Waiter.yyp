@@ -47,6 +47,7 @@
     {"id":{"name":"ui_TaskSlot","path":"objects/ui_TaskSlot/ui_TaskSlot.yy",},},
     {"id":{"name":"spr_Button","path":"sprites/spr_Button/spr_Button.yy",},},
     {"id":{"name":"rm_Home","path":"rooms/rm_Home/rm_Home.yy",},},
+    {"id":{"name":"ctrl_TaskboardDemo","path":"objects/ctrl_TaskboardDemo/ctrl_TaskboardDemo.yy",},},
     {"id":{"name":"obj_AnthillTile","path":"objects/obj_AnthillTile/obj_AnthillTile.yy",},},
     {"id":{"name":"ctrl_AnthillGenerator","path":"objects/ctrl_AnthillGenerator/ctrl_AnthillGenerator.yy",},},
     {"id":{"name":"spr_WaiterTaskProcessor","path":"sprites/spr_WaiterTaskProcessor/spr_WaiterTaskProcessor.yy",},},
