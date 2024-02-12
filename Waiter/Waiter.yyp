@@ -38,6 +38,7 @@
     {"id":{"name":"ctrl_Init","path":"objects/ctrl_Init/ctrl_Init.yy",},},
     {"id":{"name":"struct_AnthillGeneratorTask","path":"scripts/struct_AnthillGeneratorTask/struct_AnthillGeneratorTask.yy",},},
     {"id":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},},
+    {"id":{"name":"ctrl_WaiterTaskProcessor","path":"objects/ctrl_WaiterTaskProcessor/ctrl_WaiterTaskProcessor.yy",},},
     {"id":{"name":"rm_Init","path":"rooms/rm_Init/rm_Init.yy",},},
     {"id":{"name":"spr_Button","path":"sprites/spr_Button/spr_Button.yy",},},
     {"id":{"name":"rm_Home","path":"rooms/rm_Home/rm_Home.yy",},},
