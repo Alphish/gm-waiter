@@ -119,8 +119,8 @@
   "lineHeight": 21,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Demo",
-    "path": "folders/Demo.yy",
+    "name": "UI",
+    "path": "folders/Demo/UI.yy",
   },
   "pointRounding": 0,
   "ranges": [

@@ -1,0 +1,82 @@
+{
+  "resourceType": "GMRoom",
+  "resourceVersion": "1.0",
+  "name": "rm_TaskboardDemo",
+  "creationCodeFile": "",
+  "inheritCode": false,
+  "inheritCreationOrder": false,
+  "inheritLayers": false,
+  "instanceCreationOrder": [
+    {"name":"inst_5BBDA807","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_67CB8769","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_3C62EE3E","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_3144D1C0","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_5BD40C2C","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_574E4BB1","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+    {"name":"inst_5CDD8898","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},
+  ],
+  "isDnd": false,
+  "layers": [
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5BBDA807","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":656.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_67CB8769","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ctrl_TaskboardDemo","path":"objects/ctrl_TaskboardDemo/ctrl_TaskboardDemo.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3C62EE3E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Count to 1 million...",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"ctrl_TaskboardDemo.make_1m_counter_task",},
+          ],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":0.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3144D1C0","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Count to 3 millions",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"ctrl_TaskboardDemo.make_3m_counter_task",},
+          ],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5BD40C2C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Count to 10 millions!",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"ctrl_TaskboardDemo.make_10m_counter_task",},
+          ],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_574E4BB1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Count to 30 millions!!",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"ctrl_TaskboardDemo.make_30m_counter_task",},
+          ],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":192.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5CDD8898","colour":4279874303,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"text","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"Count 100 millions!!!",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"ui_TextButton","path":"objects/ui_TextButton/ui_TextButton.yy",},"propertyId":{"name":"on_click","path":"objects/ui_TextButton/ui_TextButton.yy",},"value":"ctrl_TaskboardDemo.make_100m_counter_task",},
+          ],"rotation":0.0,"scaleX":8.0,"scaleY":2.0,"x":1024.0,"y":256.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":90,"gridY":90,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+  ],
+  "parent": {
+    "name": "Taskboard",
+    "path": "folders/Demo/Taskboard.yy",
+  },
+  "parentRoom": null,
+  "physicsSettings": {
+    "inheritPhysicsSettings": false,
+    "PhysicsWorld": false,
+    "PhysicsWorldGravityX": 0.0,
+    "PhysicsWorldGravityY": 10.0,
+    "PhysicsWorldPixToMetres": 0.1,
+  },
+  "roomSettings": {
+    "Height": 720,
+    "inheritRoomSettings": false,
+    "persistent": false,
+    "Width": 1280,
+  },
+  "sequenceId": null,
+  "views": [
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":1080,"hspeed":-1,"hview":1080,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1920,"wview":1920,"xport":0,"xview":0,"yport":0,"yview":0,},
+  ],
+  "viewSettings": {
+    "clearDisplayBuffer": true,
+    "clearViewBackground": false,
+    "enableViews": false,
+    "inheritViewSettings": false,
+  },
+  "volume": 1.0,
+}
