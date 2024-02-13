@@ -280,6 +280,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
         status = WaiterTaskStatus.Successful;
         progress_amount = progress_target;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            resolve_task(_task);
+        }
         return true;
     }
     
@@ -297,6 +301,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
         failure = _failure;
         status = WaiterTaskStatus.Failed;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            reject_task(_task);
+        }
         return true;
     }
     
@@ -312,6 +320,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
         
         status = WaiterTaskStatus.Aborted;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            cancel_task_orders(_task);
+        }
         return true;
     }
 }

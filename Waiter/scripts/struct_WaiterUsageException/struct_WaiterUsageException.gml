@@ -38,6 +38,26 @@ function WaiterUsageException(_task, _message) constructor {
     static task_queue_removed_node_still_has_tasks = function() {
         return new WaiterUsageException(undefined, $"Attempting to remove a task queue priority node when it still has ongoing tasks.");
     }
+    
+    // ----------------
+    // Order exceptions
+    // ----------------
+    
+    static order_manager_missing = function() {
+        return new WaiterUsageException(undefined, $"Cannot perform order-related operations without an instance of Waiter order manager.")
+    }
+    
+    static order_manager_multiple_instances_created = function() {
+        return new WaiterUsageException(undefined, $"Attempting to create multiple Waiter order manager instances when only one can be present.");
+    }
+    
+    static orders_resolving_unsuccessful_task = function(_task) {
+        return new WaiterUsageException(_task, $"Attempting to resolve orders for a task that wasn't successfully completed.");
+    }
+    
+    static orders_rejecting_unfailed_task = function(_task) {
+        return new WaiterUsageException(_task, $"Attempting to reject orders for a task that didn't end in failure.");
+    }
 }
 
 // statics initialisation
