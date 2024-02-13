@@ -22,6 +22,14 @@ function WaiterOrder(_task, _onsuccess, _onfailure = undefined, _oncompletion = 
     
     ctrl_WaiterOrderManager.place_order(self);
     
+    /// @func for_task(task)
+    /// @desc Begins preparing an order for a given task.
+    /// @arg {Struct.WaiterTask} task       The task to prepare the order for.
+    /// @returns {Struct.WaiterOrderBuilder}
+    static for_task = function(_task) {
+        return new WaiterOrderBuilder(_task);
+    }
+    
     /// @func cancel()
     /// @desc Cancels the given order.
     static cancel = function() {

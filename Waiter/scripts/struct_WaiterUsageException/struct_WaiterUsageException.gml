@@ -43,6 +43,10 @@ function WaiterUsageException(_task, _message) constructor {
     // Order exceptions
     // ----------------
     
+    static order_handler_not_callable = function(_task, _type) {
+        return new WaiterUsageException(_task, $"The order {_type} handler must be a function or a method.")
+    }
+    
     static order_manager_missing = function() {
         return new WaiterUsageException(undefined, $"Cannot perform order-related operations without an instance of Waiter order manager.")
     }
