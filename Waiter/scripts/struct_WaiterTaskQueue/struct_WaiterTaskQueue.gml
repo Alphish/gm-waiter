@@ -1,5 +1,5 @@
 /// @func WaiterTaskQueue()
-/// @desc A constructor for task processing queues.
+/// @desc A queue for processing tasks according to their priorities.
 function WaiterTaskQueue() constructor {
     head_node = undefined;
     task_nodes = ds_map_create();
