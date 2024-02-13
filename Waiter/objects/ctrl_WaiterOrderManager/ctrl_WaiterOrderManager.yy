@@ -1,19 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "ui_TaskSlot",
+  "name": "ctrl_WaiterOrderManager",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":12,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Slots",
-    "path": "folders/Demo/Taskboard/Slots.yy",
+    "name": "Orders",
+    "path": "folders/_Packages/Alphish/Waiter/Orders.yy",
   },
   "parentObjectId": null,
-  "persistent": false,
+  "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
   "physicsFriction": 0.2,
@@ -29,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_TaskSlot",
-    "path": "sprites/spr_TaskSlot/spr_TaskSlot.yy",
+    "name": "spr_WaiterOrderManager",
+    "path": "sprites/spr_WaiterOrderManager/spr_WaiterOrderManager.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

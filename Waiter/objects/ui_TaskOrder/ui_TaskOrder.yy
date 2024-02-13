@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "ui_PrioritySelector",
+  "name": "ui_TaskOrder",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -29,12 +29,12 @@
   "physicsStartAwake": true,
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"task_slot","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"undefined","varType":4,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"priority","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"create_method","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"undefined","varType":4,},
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_PrioritySelector",
-    "path": "sprites/spr_PrioritySelector/spr_PrioritySelector.yy",
+    "name": "spr_TaskOrder",
+    "path": "sprites/spr_TaskOrder/spr_TaskOrder.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -280,6 +280,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
         status = WaiterTaskStatus.Successful;
         progress_amount = progress_target;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            resolve_task(_task);
+        }
         return true;
     }
     
@@ -297,6 +301,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
         failure = _failure;
         status = WaiterTaskStatus.Failed;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            reject_task(_task);
+        }
         return true;
     }
     
@@ -312,7 +320,34 @@ function WaiterTask(_name = "Waiter Task") constructor {
         
         status = WaiterTaskStatus.Aborted;
         
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            cancel_task_orders(_task);
+        }
         return true;
+    }
+    
+    // ------
+    // Orders
+    // ------
+    
+    /// @func begin_order()
+    /// @desc Begins preparing an order for the task.
+    /// @returns {Struct.WaiterOrderBuilder}
+    static begin_order = function() {
+        if (!instance_exists(ctrl_WaiterOrderManager))
+            throw WaiterUsageException.order_manager_missing();
+        
+        return new WaiterOrderBuilder(self);
+    }
+    
+    /// @func cancel_orders()
+    /// @desc Cancels all orders waiting for the task completion.
+    static cancel_orders = function() {
+        if (!instance_exists(ctrl_WaiterOrderManager))
+            throw WaiterUsageException.order_manager_missing();
+        
+        ctrl_WaiterOrderManager.cancel_task_orders(self);
     }
 }
 

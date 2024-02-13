@@ -7,7 +7,7 @@
    viewBox="0 0 16.933333 16.933334"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="Icons.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,15 +25,15 @@
      showgrid="false"
      inkscape:snap-global="false"
      units="px"
-     inkscape:zoom="4"
-     inkscape:cx="29.75"
-     inkscape:cy="45.875"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="311"
-     inkscape:window-y="1432"
+     inkscape:zoom="1"
+     inkscape:cx="101.5"
+     inkscape:cy="29"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="4791"
+     inkscape:window-y="666"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2" />
   <g
@@ -59,6 +59,26 @@
        x="0.132291"
        y="0.132291"
        inkscape:export-filename="C:\Omnipocket\Development\GameMaker\Libraries\gm-waiter\Graphics\spr_WaiterTaskProcessor.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#aed65c;fill-opacity:1;stroke:#000000;stroke-width:0.264582;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect830"
+       width="16.668751"
+       height="16.668751"
+       x="21.298958"
+       y="0.132291"
+       inkscape:export-filename="C:\Omnipocket\Development\GameMaker\Libraries\gm-basic-systems\Graphics\syspr_Transition.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264582;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect832"
+       width="16.668751"
+       height="16.668751"
+       x="21.298958"
+       y="0.132291"
+       inkscape:export-filename="C:\Omnipocket\Development\GameMaker\Libraries\gm-waiter\Graphics\spr_WaiterOrderManager.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
   </g>
@@ -100,5 +120,75 @@
          style="fill:#000000;fill-opacity:0.6;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
          d="M 11.613927,9.0540317 A 1.4111111,1.4111111 0 0 0 11.723628,8.8121185 0.4703704,0.4703704 0 0 1 11.332562,8.3484488 0.4703704,0.4703704 0 0 1 11.723994,7.8854431 1.4111111,1.4111111 0 0 0 11.459077,7.4269786 0.4703704,0.4703704 0 0 1 10.862239,7.5337709 0.4703704,0.4703704 0 0 1 10.657017,6.9636441 1.4111111,1.4111111 0 0 0 10.127004,6.9634203 0.4703704,0.4703704 0 0 1 10.093638,7.3615871 0.4703704,0.4703704 0 0 1 9.9215439,7.5337971 0.4703704,0.4703704 0 0 1 9.3244611,7.4269587 1.4111111,1.4111111 0 0 0 9.1698085,7.6429189 1.4111111,1.4111111 0 0 0 9.0600744,7.885344 0.4703704,0.4703704 0 0 1 9.4511709,8.3485009 0.4703704,0.4703704 0 0 1 9.3880799,8.5836438 0.4703704,0.4703704 0 0 1 9.05994,8.8116228 1.4111111,1.4111111 0 0 0 9.3251402,9.2705155 0.4703704,0.4703704 0 0 1 9.9214954,9.16318 a 0.4703704,0.4703704 0 0 1 0.2048476,0.5712363 1.4111111,1.4111111 0 0 0 0.530954,-2.85e-5 0.4703704,0.4703704 0 0 1 0.204892,-0.5712352 0.4703704,0.4703704 0 0 1 0.59722,0.1079785 1.4111111,1.4111111 0 0 0 0.154521,-0.2170979 z M 10.799222,8.5836612 A 0.4703704,0.4703704 0 0 1 10.156683,8.7558286 0.4703704,0.4703704 0 0 1 9.9845163,8.1132907 0.4703704,0.4703704 0 0 1 10.627054,7.9411233 0.4703704,0.4703704 0 0 1 10.799222,8.5836612 Z" />
     </g>
+    <path
+       id="path834"
+       style="fill-opacity:0.6;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+       d="M 22.225,7.6729166 H 37.041668 L 34.925,8.202083 33.866667,8.7312499 H 25.4 L 24.341667,8.202083 Z"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="fill:#000000;fill-opacity:0.6;stroke:none;stroke-width:0.300009;stroke-linecap:round;stroke-linejoin:round"
+       id="path836"
+       sodipodi:type="arc"
+       sodipodi:cx="29.633333"
+       sodipodi:cy="7.4083319"
+       sodipodi:rx="4.7625003"
+       sodipodi:ry="3.7041667"
+       sodipodi:start="3.1415927"
+       sodipodi:end="0"
+       sodipodi:arc-type="arc"
+       d="m 24.870833,7.4083319 a 4.7625003,3.7041667 0 0 1 4.7625,-3.7041667 4.7625003,3.7041667 0 0 1 4.7625,3.7041667"
+       sodipodi:open="true" />
+    <path
+       id="path838"
+       style="fill-opacity:0.6;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round"
+       d="m 29.605946,1.675867 c -0.571877,0.01449 -1.030945,0.482964 -1.030945,1.0583329 0,0.2787314 0.428259,0.5323877 0.63407,0.7214032 a 5.0270837,3.9687501 0 0 1 0.424263,-0.01602 5.0270837,3.9687501 0 0 1 0.425814,0.01447 c 0.20643,-0.1888575 0.632519,-0.441851 0.632519,-0.719853 0,-0.5845011 -0.473831,-1.0583331 -1.058333,-1.0583331 -0.0091,0 -0.01831,-2.3e-4 -0.02739,0 z" />
+    <path
+       id="rect948"
+       style="fill:#000000;fill-opacity:0.6;stroke-width:6;stroke-linecap:round"
+       d="m 112,37.999999 c -1.10457,0 -2,0.447716 -2,1 h -1 v 1 h -5 V 59 h 16 V 39.999999 h -5 v -1 h -1 c 0,-0.552284 -0.89543,-1 -2,-1 z m -7,3 h 4 v 1 h 6 v -1 h 4 V 58 h -14 z"
+       transform="scale(0.26458334)"
+       sodipodi:nodetypes="sccccccccccsccccccccc" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.5875;stroke-linecap:round"
+       id="rect1118"
+       width="0.52916664"
+       height="0.52916664"
+       x="28.310417"
+       y="11.90625" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.5875;stroke-linecap:round"
+       id="rect1125"
+       width="0.52916664"
+       height="0.52916664"
+       x="28.310417"
+       y="12.964582" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.5875;stroke-linecap:round"
+       id="rect1127"
+       width="0.52916664"
+       height="0.52916664"
+       x="28.310417"
+       y="14.022915" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.58751;stroke-linecap:round"
+       id="rect1131"
+       width="1.8520834"
+       height="0.52916664"
+       x="29.104164"
+       y="11.90625" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.58751;stroke-linecap:round"
+       id="rect1133"
+       width="1.8520834"
+       height="0.52916664"
+       x="29.104164"
+       y="12.964582" />
+    <rect
+       style="fill:#000000;fill-opacity:0.6;stroke-width:1.58751;stroke-linecap:round"
+       id="rect1135"
+       width="1.8520834"
+       height="0.52916664"
+       x="29.104164"
+       y="14.022915" />
   </g>
 </svg>
