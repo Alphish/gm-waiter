@@ -7,10 +7,10 @@ enum WaiterTaskStatus {
     /// @desc The task can't continue its processing just yet and is delayed until the next run.
     Delayed = 3,
     
-    // a threshold value for finished statuses
+    // a threshold value for concluded statuses
     // don't use it as an actual task status!
     /// @ignore
-    Finished = 10,
+    Concluded = 10,
     
     /// @desc The task has been aborted before it could result in a success or a failure.
     Aborted = 11,

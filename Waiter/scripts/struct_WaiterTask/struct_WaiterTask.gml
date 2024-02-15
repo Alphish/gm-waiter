@@ -108,7 +108,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     }
     
     /// @func is_pending()
-    /// @desc Checks whether the task is pending, i.e. was never run or finished.
+    /// @desc Checks whether the task is pending, i.e. was neither run nor immediately concluded.
     /// @returns {Bool}
     static is_pending = function() {
         return status == WaiterTaskStatus.Pending;
@@ -128,11 +128,11 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return status == WaiterTaskStatus.Delayed;
     }
     
-    /// @func is_finished()
-    /// @desc Checks whether the task is in one of finished states.
+    /// @func is_concluded()
+    /// @desc Checks whether the task is in one of concluded states.
     /// @returns {Bool}
-    static is_finished = function() {
-        return status > WaiterTaskStatus.Finished;
+    static is_concluded = function() {
+        return status > WaiterTaskStatus.Concluded;
     }
     
     /// @func is_aborted()
@@ -213,10 +213,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
     }
     
     /// @func run_once()
-    /// @desc Runs a single processing step of the task and returns whether the task has finished or not.
+    /// @desc Runs a single processing step of the task and returns whether the task has concluded or not.
     /// @returns {Bool}
     static run_once = function() {
-        if (status > WaiterTaskStatus.Finished)
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         init_run();
@@ -252,20 +252,20 @@ function WaiterTask(_name = "Waiter Task") constructor {
             process();
             
             if (status != WaiterTaskStatus.Running)
-                return status > WaiterTaskStatus.Finished;
+                return status > WaiterTaskStatus.Concluded;
         }
         
         while (get_timer() <= _time && status == WaiterTaskStatus.Running) {
             process();
         }
-        return status > WaiterTaskStatus.Finished;
+        return status > WaiterTaskStatus.Concluded;
     }
     
     /// @func run_to_end()
     /// @desc Runs the given task until it finishes or ends up in a delayed state.
     /// @returns {Bool}
     static run_to_end = function() {
-        if (status > WaiterTaskStatus.Finished)
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         init_run();
@@ -273,7 +273,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
         while (status == WaiterTaskStatus.Running) {
             process();
         }
-        return status > WaiterTaskStatus.Finished;
+        return status > WaiterTaskStatus.Concluded;
     }
     
     // ----------------
@@ -281,7 +281,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     // ----------------
     
     // these functions can be used as returns in the "process" function
-    // to signal the whether the task is finished or not
+    // to signal the whether the task is concluded or not
     // and update the progress/success/failure status accordingly
     
     /// @func proceed()
@@ -322,7 +322,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     /// @arg {Any} result       The final result of the task.
     /// @returns {Bool}
     static succeed_with = function(_result) {
-        if (status > WaiterTaskStatus.Finished)
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         if (status != WaiterTaskStatus.Pending)
@@ -344,7 +344,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     /// @arg {Any} failure      The entity to indicate the cause of the failure.
     /// @returns {Bool}
     static fail_with = function(_failure) {
-        if (status > WaiterTaskStatus.Finished)
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         if (status != WaiterTaskStatus.Pending)
@@ -364,7 +364,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     /// @desc Aborts the task so that it's not executed anymore.
     /// @returns {Bool}
     static abort = function() {
-        if (status > WaiterTaskStatus.Finished)
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         if (status != WaiterTaskStatus.Pending)

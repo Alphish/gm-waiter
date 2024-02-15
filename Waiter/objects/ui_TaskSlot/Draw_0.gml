@@ -9,7 +9,7 @@ draw_set_valign(fa_top);
 draw_text(x + inner_width div 2, y + 16, _has_task ? current_task.name : "<no task>");
 
 if (_has_task) {
-    if (!current_task.is_finished())
+    if (!current_task.is_concluded())
         draw_set_color(c_silver);
     else
         draw_set_color(current_task.is_successful() ? c_lime : c_orange);

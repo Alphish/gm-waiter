@@ -14,7 +14,7 @@ function WaiterTaskQueue() constructor {
     /// @arg {Struct.WaiterTask} task       The task to enqueue.
     /// @arg {Real} [priority]              The priority assigned to the task (0 by default).
     static enqueue = function(_task, _priority = 0) {
-        if (_task.status > WaiterTaskStatus.Finished)
+        if (_task.status > WaiterTaskStatus.Concluded)
             return; // no point in adding an already completed task
         
         if (ds_map_exists(task_nodes, _task))
@@ -65,7 +65,7 @@ function WaiterTaskQueue() constructor {
         return ds_map_exists(task_nodes, _task);
     }
     
-    /// @ignore Internal function for removing finished tasks within priority node.
+    /// @ignore Internal function for removing concluded tasks within priority node.
     static unregister_task = function(_task, _node) {
         ds_map_delete(task_nodes, _task);
         if (!_node.has_tasks())

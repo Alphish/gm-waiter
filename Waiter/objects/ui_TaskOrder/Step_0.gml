@@ -9,5 +9,5 @@ if (is_hovered && mouse_check_button_pressed(mb_left)) {
     }
 }
 
-if (is_undefined(current_order) || current_order.is_finished())
+if (is_undefined(current_order) || current_order.is_concluded())
     current_order = undefined;

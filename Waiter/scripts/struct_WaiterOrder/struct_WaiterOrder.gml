@@ -1,5 +1,5 @@
 /// @func WaiterOrder(task,onsuccess,[onfailure],[oncompletion])
-/// @desc A structure keeping track of a task order, executing a specific logic when finished.
+/// @desc A structure keeping track of a task order, executing a specific logic when completed.
 ///       Note: An instance of ctrl_WaiterOrderManager must be available for orders to be placed.
 /// @arg {Struct.WaiterTask} task       The task for which the order is made.
 /// @arg {Function} onsuccess           A callback to execute when the task finishes successfully.
@@ -66,9 +66,9 @@ function WaiterOrder(_task, _onsuccess, _onfailure = undefined, _oncompletion = 
             completion_handler(_task, self);
     }
     
-    /// @func is_finished()
-    /// @desc Checks whether the order has been finished (fulfilled or cancelled).
-    static is_finished = function() {
+    /// @func is_concluded()
+    /// @desc Checks whether the order has been concluded (fulfilled or cancelled).
+    static is_concluded = function() {
         return is_canceled || is_fulfilled;
     }
 }

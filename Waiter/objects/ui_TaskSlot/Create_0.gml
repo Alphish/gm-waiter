@@ -33,7 +33,7 @@ set_priority = function(_priority) {
         return;
     
     current_priority = _priority;
-    if (!current_task.is_finished())
+    if (!current_task.is_concluded())
         ctrl_WaiterTaskProcessor.change_priority(current_task, current_priority);
 }
 

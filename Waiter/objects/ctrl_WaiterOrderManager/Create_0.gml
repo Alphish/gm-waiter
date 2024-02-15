@@ -8,7 +8,7 @@ task_orders = ds_map_create();
 // -------
 
 // places a newly created task order
-// or resolves/rejects it immediately if the task is already finished
+// or resolves/rejects it immediately if the task is already concluded
 place_order = function(_order) {
     var _task = _order.task;
     if (_task.status == WaiterTaskStatus.Successful)
