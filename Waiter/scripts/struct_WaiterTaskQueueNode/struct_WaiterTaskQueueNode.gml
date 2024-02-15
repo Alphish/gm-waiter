@@ -98,13 +98,13 @@ function WaiterTaskQueueNode(_queue, _priority) constructor {
     }
     
     /// runs the upcoming tasks for the given number of repetitions and until the given time
-    static run_batch_until = function(_repeats, _time) {
+    static run_batch_until = function(_time, _repeats) {
         prepare_run();
         
         // the first task in the run is guaranteed to exist
         // because the queue struct checks for the node's tasks first
         var _task = array_shift(ready_tasks);
-        _task.run_batch_until(_repeats, _time);
+        _task.run_batch_until(_time, _repeats);
         replace_task(_task);
         
         while (get_timer() <= _time) {
@@ -112,7 +112,7 @@ function WaiterTaskQueueNode(_queue, _priority) constructor {
             if (is_undefined(_task))
                 return;
             
-            _task.run_batch_until(1, _time);
+            _task.run_batch_until(_time, _repeats);
             replace_task(_task);
         }
     }

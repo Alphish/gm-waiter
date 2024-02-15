@@ -50,5 +50,5 @@ process_ongoing_tasks = function() {
     var _min_runtime_us = round(1000 * min_runtime);
     var _max_runtime_us = round(1000 * max_runtime);
     var _target_time = _current_time + clamp(_remaining_time, _min_runtime_us, _max_runtime_us);
-    queue.run_batch_until(min_repeats, _target_time);
+    queue.run_batch_until(_target_time, min_repeats);
 }

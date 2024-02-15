@@ -224,26 +224,26 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return process();
     }
     
-    /// @func run_batch(repeats,milliseconds)
-    /// @desc Runs a batch of processing steps performing a given minimum number of repetitions and spanning a given number of milliseconds.
-    /// @arg {Real} repeats         The minimum number of processing steps to perform.
-    /// @arg {Real} milliseconds    The number of milliseconds the batch should run for.
+    /// @func run_batch(duration,[repeats])
+    /// @desc Runs a batch of processing steps for the given duration.
+    /// @arg {Real} duration        The intended batch duration (in milliseconds).
+    /// @arg {Real} [repeats]       The minimum number of processing steps to perform.
     /// @returns {Bool}
-    static run_batch = function(_repeats, _milliseconds) {
-        if (status > WaiterTaskStatus.Finished)
+    static run_batch = function(_duration, _repeats = 1) {
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
-        var _target_time = get_timer() + round(_milliseconds * 1000);
-        return run_batch_until(_repeats, _target_time);
+        var _target_time = get_timer() + round(_duration * 1000);
+        return run_batch_until(_target_time, _repeats);
     }
     
-    /// @func run_batch_until(repeats,time)
-    /// @desc Runs a batch of processing steps performing a given minimum number of repetitions and lasting until the given time.
-    /// @arg {Real} repeats         The minimum number of processing steps to perform.
+    /// @func run_batch_until(time,[repeats])
+    /// @desc Runs a batch of processing steps lasting until the given time.
     /// @arg {Real} time            The time to run the batch until, as compared to get_timer().
+    /// @arg {Real} [repeats]       The minimum number of processing steps to perform.
     /// @returns {Bool}
-    static run_batch_until = function(_repeats, _time) {
-        if (status > WaiterTaskStatus.Finished)
+    static run_batch_until = function(_time, _repeats = 1) {
+        if (status > WaiterTaskStatus.Concluded)
             return true;
         
         init_run();

@@ -138,34 +138,34 @@ function WaiterTaskQueue() constructor {
         _current_node.run_once();
     }
     
-    /// @func run_once()
-    /// @desc Runs a batch of processing steps performing a given minimum number of repetitions and spanning a given number of milliseconds.
+    /// @func run_batch(duration,[repeats])
+    /// @desc Runs a batch of processing steps for the given durartion.
     ///       If the first task ends its run before the time runs out, the remaining time is spent on subsequent tasks.
-    /// @arg {Real} repeats         The minimum number of upcoming task processing steps to perform.
-    /// @arg {Real} milliseconds    The number of milliseconds the tasks should run for.
-    static run_batch = function(_repeats, _milliseconds) {
-        var _target_time = get_timer() + round(_milliseconds * 1000);
-        run_batch_until(_repeats, _target_time);
+    /// @arg {Real} duration        The intended batch duration (in milliseconds).
+    /// @arg {Real} [repeats]       The minimum number of upcoming task processing steps to perform.
+    static run_batch = function(_duration, _repeats = 1) {
+        var _target_time = get_timer() + round(_duration * 1000);
+        run_batch_until(_target_time, _repeats);
     }
     
-    /// @func run_batch_until(repeats,time)
-    /// @desc Runs a batch of processing steps performing a given minimum number of repetitions and lasting until the given time.
+    /// @func run_batch_until(time,[repeats])
+    /// @desc Runs a batch of processing steps lasting until the given time.
     ///       If the first task ends its run before the time runs out, the remaining time is spent on subsequent tasks.
-    /// @arg {Real} repeats         The minimum number of upcoming task processing steps to perform.
     /// @arg {Real} time            The time to run the batch until, as compared to get_timer().
-    static run_batch_until = function(_repeats, _time) {
+    /// @arg {Real} [repeats]       The minimum number of upcoming task processing steps to perform.
+    static run_batch_until = function(_time, _repeats = 1) {
         var _current_node = prepare_next_node(head_node);
         if (is_undefined(_current_node))
             return;
         
-        _current_node.run_batch_until(_repeats, _time);
+        _current_node.run_batch_until(_time, _repeats);
         
         while (get_timer() <= _time) {
             _current_node = prepare_next_node(_current_node.next_node);
             if (is_undefined(_current_node))
                 return;
             
-            _current_node.run_batch_until(1, _time);
+            _current_node.run_batch_until(_time, 1);
         }
     }
     
