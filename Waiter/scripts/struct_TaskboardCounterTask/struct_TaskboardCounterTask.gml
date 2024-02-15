@@ -5,8 +5,7 @@ function DemoCounterTask(_target, _name = undefined) : WaiterTask(_name) constru
     point_of_failure = irandom_range(0, _target * 3);
     
     static setup = function() {
-        progress_target = count_target;
-        progress_amount = count_current;
+        begin_progress_toward(count_target);
     }
     
     static process = function() {
@@ -22,6 +21,6 @@ function DemoCounterTask(_target, _name = undefined) : WaiterTask(_name) constru
     }
     
     static get_progress_description = function() {
-        return string_format(100 * count_current / count_target, 0, 2) + "%";
+        return get_progress_percentage(2);
     }
 }

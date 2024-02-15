@@ -26,8 +26,7 @@ function AnthillGeneratorTask(_width, _height, _subsize, _name = "Anthill Genera
         reserve_sector_cells();
         array_shuffle_ext(cells);
         
-        progress_amount = 0;
-        progress_target = width * height;
+        begin_progress_toward(width * height);
     }
     
     static reserve_sector_cells = function() {
@@ -72,7 +71,7 @@ function AnthillGeneratorTask(_width, _height, _subsize, _name = "Anthill Genera
         var _image = _is_next_reserved ? 2 : (try_occupy_cell(_column, _row) ? 1 : 0);
         instance_create_layer(16 * _column, 16 * _row, "Instances", obj_AnthillTile, { image_index: _image, image_speed: 0 });
         
-        return progress_to(progress_amount + 1); // the cell is already occupied, therefore it's a wall
+        return progress_by(1);
     }
     
     static try_occupy_cell = function(_column, _row) {

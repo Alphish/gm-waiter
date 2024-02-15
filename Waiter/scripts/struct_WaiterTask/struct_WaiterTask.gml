@@ -18,10 +18,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
     // stores the cause of a task failure, if any
     failure = undefined;
     
-    // keeps track of the task progress amount; can be used for progress bars and the like
-    progress_amount = undefined;
+    // keeps track of the current task progress; can be used for progress bars and the like
+    progress_current = undefined;
     
-    // keeps track of the task target progress; can be used for progress bars and the like
+    // keeps track of the target task progress; can be used for progress bars and the like
     progress_target = undefined;
     
     /// @func from_result(result,[name])
@@ -101,10 +101,10 @@ function WaiterTask(_name = "Waiter Task") constructor {
     }
     
     /// @func get_progress_description()
-    /// @desc Gets a task describing the current task progress. Can be overriden.
+    /// @desc Gets a string describing the current task progress. Can be overriden.
     /// @returns {String}
     static get_progress_description = function() {
-        return $"{progress_amount}/{progress_target}";
+        return get_progress_out_of_total() ?? "In progress...";
     }
     
     /// @func is_pending()
@@ -154,6 +154,49 @@ function WaiterTask(_name = "Waiter Task") constructor {
     /// @returns {Bool}
     static is_successful = function() {
         return status == WaiterTaskStatus.Successful;
+    }
+    
+    // --------
+    // Progress
+    // --------
+    
+    /// @func begin_progress_toward(target)
+    /// @desc Sets up the task for progress tracking, with the given value as the target.
+    /// @arg {Real} target          The progress target to reach.
+    static begin_progress_toward = function(_target) {
+        progress_current = 0;
+        progress_target = _target;
+    }
+    
+    /// @func get_progress_amount()
+    /// @desc Returns the fraction of the progress in relation to the total, or undefined if no progress target was specified.
+    /// @returns {Real,Undefined}
+    static get_progress_amount = function() {
+        if (is_undefined(progress_target))
+            return undefined;
+        
+        return progress_current / progress_target;
+    }
+    
+    /// @func get_progress_out_of_total()
+    /// @desc Returns a string representing the progress in the "current/total" format, or undefined if no progress target was specified.
+    /// @returns {String,Undefined}
+    static get_progress_out_of_total = function() {
+        if (is_undefined(progress_target))
+            return undefined;
+        
+        return $"{progress_current}/{progress_target}";
+    }
+    
+    /// @func get_progress_percentage([precision])
+    /// @desc Returns a string representing the progress as a percentage, or undefined if no progress target was specified.
+    /// @arg {Real} precision       The number of decimal points shown.
+    /// @returns {String,Undefined}
+    static get_progress_percentage = function(_precision = 0) {
+        if (is_undefined(progress_target))
+            return undefined;
+        
+        return string_format(100 * progress_current / progress_target, 0, _precision) + "%";
     }
     
     // ------------
@@ -256,13 +299,22 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return false;
     }
     
-    /// @func progress_to(amount)
-    /// @desc Indicates that the task should proceed and also updates the progress amount with the given value.
-    /// @arg {Real} amount      The new progress amount to set.
+    /// @func progress_to(quantity)
+    /// @desc Indicates that the task should proceed and also updates the progress quantity with the given value.
+    /// @arg {Real} quantity    The new progress quantity to set.
     /// @returns {Bool}
-    static progress_to = function(_amount) {
-        progress_amount = _amount;
+    static progress_to = function(_quantity) {
+        progress_current = _quantity;
         return false;
+    }
+    
+    /// @func progress_by(quantity)
+    /// @desc Indicates that the task should proceed and also increases the progress quantity by the given value.
+    /// @arg {Real} quantity    The quantity to increase the progress by.
+    /// @returns {Bool}
+    static progress_by = function(_quantity) {
+        progress_current += _quantity;
+        return false
     }
     
     /// @func succeed_with(result)
@@ -278,7 +330,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
         
         result = _result;
         status = WaiterTaskStatus.Successful;
-        progress_amount = progress_target;
+        progress_current = progress_target;
         
         var _task = self;
         with (ctrl_WaiterOrderManager) {
