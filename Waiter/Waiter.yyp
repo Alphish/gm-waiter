@@ -41,6 +41,7 @@
     {"id":{"name":"enum_WaiterTaskStatus","path":"scripts/enum_WaiterTaskStatus/enum_WaiterTaskStatus.yy",},},
     {"id":{"name":"ctrl_AnthillDemo","path":"objects/ctrl_AnthillDemo/ctrl_AnthillDemo.yy",},},
     {"id":{"name":"ctrl_WaiterOrderManager","path":"objects/ctrl_WaiterOrderManager/ctrl_WaiterOrderManager.yy",},},
+    {"id":{"name":"spr_WaiterLogo","path":"sprites/spr_WaiterLogo/spr_WaiterLogo.yy",},},
     {"id":{"name":"rm_TaskboardDemo","path":"rooms/rm_TaskboardDemo/rm_TaskboardDemo.yy",},},
     {"id":{"name":"struct_WaiterTaskQueueNode","path":"scripts/struct_WaiterTaskQueueNode/struct_WaiterTaskQueueNode.yy",},},
     {"id":{"name":"ui_TaskOrder","path":"objects/ui_TaskOrder/ui_TaskOrder.yy",},},
