@@ -10,7 +10,7 @@ You can also check out the [itch.io page](https://alphish-creature.itch.io/gm-wa
 
 ## Installation
 
-- download the latest package version: [Alphish.Waiter.0.3.0.yymps](/Release/Alphish.Waiter.0.3.0.yymps)
+- download the latest package version: [Alphish.Waiter.0.3.0.yymps](/Release/Alphish.Waiter.0.3.0.yymps?raw=1)
 - open your GameMaker project
 - open the package importing window via **Tools >> Import Local Package**
 - add all assets to import and proceed
@@ -26,6 +26,6 @@ The following pages describe the package functionality in more detail:
 
 You can check out the demonstration of the package functionality.
 
-Just download [Waiter Demo.yyz](/Release/Waiter%20Demo.yyz), then open GameMaker and import the file via **File >> Import project**. After that, you can run the project to see how the system works in practice, and check out assets in the Demo group to see how specific tasks were implemented.
+Just download [Waiter Demo.yyz](/Release/Waiter%20Demo.yyz?raw=1), then open GameMaker and import the file via **File >> Import project**. After that, you can run the project to see how the system works in practice, and check out assets in the Demo group to see how specific tasks were implemented.
 
 Alternatively, you can download the demo executable from the [itch.io page](https://alphish-creature.itch.io/gm-waiter). However, you won't be able to check the source code as easily.
