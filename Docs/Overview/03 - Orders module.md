@@ -1,4 +1,4 @@
-[<< Back to home](/)
+[<< Back to home](https://github.com/Alphish/gm-waiter)
 
 [<< 02 - Processing module](/Docs/Overview/02%20-%20Processing%20module.md) | **03 - Orders module**
 
