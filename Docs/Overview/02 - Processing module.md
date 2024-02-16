@@ -1,3 +1,9 @@
+[<< Back to home](https://github.com/Alphish/gm-waiter)
+
+[<< 01 - Tasks module](/Docs/Overview/01%20-%20Tasks%20module.md) | **02 - Processing module** | [03 - Orders module >>](/Docs/Overview/03%20-%20Orders%20module.md)
+
+-----
+
 # Processing module
 
 The processing module provides utilities for higher-level task processing. In particular:
@@ -137,6 +143,10 @@ process_ongoing_tasks();
 
 This approach is somewhat rigid, with certain User Event numbers becoming unusable, but it's simpler than creating a completely separate controller object.
 
----
+-----
 
 Currently, in the native GML, there seem to be no better solution to estimating remaining frame time than using **Begin Step** event and **Draw GUI End** event for time measurement. There may still be workarounds - e.g. instead of having the background processing compete with the core gameplay time, complete all the tasks beforehand in a less time-critical part of the game such as between levels. In the end, it's up to developer to figure out what works for their project.
+
+-----
+
+[<< 01 - Tasks module](/Docs/Overview/01%20-%20Tasks%20module.md) | **02 - Processing module** | [03 - Orders module >>](/Docs/Overview/03%20-%20-Orders%20module.md)

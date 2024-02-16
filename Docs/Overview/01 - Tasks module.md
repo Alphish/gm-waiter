@@ -1,3 +1,9 @@
+[<< Back to home](https://github.com/Alphish/gm-waiter)
+
+**01 - Tasks module** | [02 - Processing module >>](/Docs/Overview/02%20-%20Processing%20module.md)
+
+-----
+
 # Tasks module
 
 The tasks module provides the base for long-running tasks, which allows:
@@ -123,4 +129,8 @@ In particular, the batch running functions are designed in a way that the proces
 
 Still, the longer the individual processing steps are, the greater room for imprecision. For example, if a processing step can get 1.500ms long, a batch planned for 5.000ms run would stretch to 6.500ms. Thus, to prevent random framerate drops, it's worth aiming for processing steps no longer than hundreds of microseconds (i.e. tenths of milliseconds) or so.
 
-A custom Waiter task may run for a given duration or until a specific time when told to, but it won't figure out the optimal time to run for on its own. That's where the [Waiter task processor](/Docs/Overview/02 - Processing module) comes in, though it has some caveats of its own.
+A custom Waiter task may run for a given duration or until a specific time when told to, but it won't figure out the optimal time to run for on its own. That's where the [Waiter task processor](/Docs/Overview/02%20-%20Processing%20module.md) comes in, though it has some caveats of its own.
+
+-----
+
+**01 - Tasks module** | [02 - Processing module >>](/Docs/Overview/02%20-%20Processing%20module.md)

@@ -1,3 +1,9 @@
+[<< Back to home](https://github.com/Alphish/gm-waiter)
+
+[<< 02 - Processing module](/Docs/Overview/02%20-%20Processing%20module.md) | **03 - Orders module**
+
+-----
+
 # Orders module
 
 The orders module provides a functionality for **executing custom logic upon the task completion**, whether a success or a failure. It allows the Waiter task to focus on producing its result, leaving subsequent handling to the orders.
@@ -34,7 +40,7 @@ The most straightforward way to make an order is to use `WaiterOrder` constructo
 
 Creating a new `WaiterOrder` with the constructor will automatically add the order to the order manager, making it ready to be fulfilled once the task completes.
 
----
+-----
 
 An alternative is to use the order builder, which allows chaining setup methods. The building can be started with `WaiterOrder.for_task(task)` static method or `task.begin_order()` task method. Then, the following methods can be chained to setup the handlers:
 - `on_success(handler)` - adds a success handler to the newly built order
@@ -71,3 +77,7 @@ You can check whether the order has been cancelled or fulfilled with its `is_con
 Since the orders execute immediately upon the task completion, they shouldn't perform any time-consuming logic or they might overextend the task run (admittedly, it's an oversight on my part).
 
 Depending on your use-case, you may consider other alternatives, such as having a task instance stored by a struct or an object instance and reacting to the task state every frame. It might turn out your project wouldn't really benefit from task order mechanics and thus not use task orders at all, saving you the setup of the Waiter order manager. At the end of the day, it's the developer who knows their project best and decides which of the tools available should be used.
+
+-----
+
+[<< 02 - Processing module](/Docs/Overview/02%20-%20Processing%20module.md) | **03 - Orders module**
