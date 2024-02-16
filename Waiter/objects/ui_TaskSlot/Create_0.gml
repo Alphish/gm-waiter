@@ -66,12 +66,14 @@ create_sfx_order = function() {
 // because objects have no static initialisation
 // and I need some method variables to exist for buttons assignment
 
+var _priority_names = ["Lowest priority", "Low priority", "Medium priority", "High priority", "Highest priority"];
 var _priorities_x = (inner_width div 2) - 12;
 var _priorities_y = 80;
 for (var i = -2; i <= 2; i++) {
     instance_create_depth(x + _priorities_x + i * 30, y + _priorities_y, depth - 1, ui_PrioritySelector, {
         task_slot: id,
         priority: i,
+        tooltip: _priority_names[i + 2],
     });
 }
 
@@ -82,12 +84,16 @@ instance_create_depth(x + _order_x, y + _order_y, depth - 1, ui_TaskOrder, {
     create_method: create_fireworks_order,
     image_index: 0,
     image_speed: 0,
+    order_tooltip: "Order GFX",
+    cancel_tooltip: "Cancel GFX",
     });
 instance_create_depth(x + _order_x, y + _order_y + 30, depth - 1, ui_TaskOrder, {
     task_slot: id,
     create_method: create_sfx_order,
     image_index: 1,
     image_speed: 0,
+    order_tooltip: "Order SFX",
+    cancel_tooltip: "Cancel SFX",
     });
 
 var _cancel_x = inner_width + 8;
