@@ -18,9 +18,9 @@ You can also check out the [itch.io page](https://alphish-creature.itch.io/gm-wa
 ## Documentation
 
 The following pages describe the package functionality in more detail:
-- [Tasks module](/Docs/Overview/01%20-%20-Tasks%20module.md)
-- [Processing module](/Docs/Overview/02%20-%20-Processing%20module.md)
-- [Orders module](/Docs/Overview/03%20-%20-Orders%20module.md)
+- [Tasks module](/Docs/Overview/01%20-%20Tasks%20module.md)
+- [Processing module](/Docs/Overview/02%20-%20Processing%20module.md)
+- [Orders module](/Docs/Overview/03%20-%20Orders%20module.md)
 
 ## Demonstration
 
