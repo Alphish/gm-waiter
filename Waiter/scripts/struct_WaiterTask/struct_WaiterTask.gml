@@ -22,7 +22,7 @@ function WaiterTask(_name = "Waiter Task") constructor {
     progress_current = undefined;
     
     // keeps track of the target task progress; can be used for progress bars and the like
-    progress_target = undefined;
+    progress_total = undefined;
     
     /// @func from_result(result,[name])
     /// @desc Creates a successfully completed task with a given result.
@@ -76,6 +76,90 @@ function WaiterTask(_name = "Waiter Task") constructor {
         // no cleanup logic by default
     }
     
+    // ----------------
+    // Process outcomes
+    // ----------------
+    
+    // these functions can be used as returns in the "process" function
+    // to signal the whether the task is concluded or not
+    // and update the progress/success/failure status accordingly
+    
+    /// @func proceed()
+    /// @desc Indicates that the task should proceed to the next step as soon as permitted.
+    /// @returns {Bool}
+    static proceed = function() {
+        return false;
+    }
+    
+    /// @func proceed_later()
+    /// @desc Indicates that the task should continue during the next run.
+    /// @returns {Bool}
+    static proceed_later = function() {
+        status = WaiterTaskStatus.Delayed;
+        return false;
+    }
+    
+    /// @func progress_to(value)
+    /// @desc Indicates that the task should proceed and also sets the current progress to the given value.
+    /// @arg {Real} value       The new progress value to set.
+    /// @returns {Bool}
+    static progress_to = function(_value) {
+        progress_current = _value;
+        return false;
+    }
+    
+    /// @func progress_by(value)
+    /// @desc Indicates that the task should proceed and also increases the progress by the given value.
+    /// @arg {Real} value       The value to increase the progress by.
+    /// @returns {Bool}
+    static progress_by = function(_value) {
+        progress_current += _value;
+        return false
+    }
+    
+    /// @func succeed_with(result)
+    /// @desc Finishes a task successfully with the given result.
+    /// @arg {Any} result       The final result of the task.
+    /// @returns {Bool}
+    static succeed_with = function(_result) {
+        if (status > WaiterTaskStatus.Concluded)
+            return true;
+        
+        if (status != WaiterTaskStatus.Pending)
+            cleanup(WaiterTaskStatus.Successful);
+        
+        result = _result;
+        status = WaiterTaskStatus.Successful;
+        progress_current = progress_total;
+        
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            resolve_task(_task);
+        }
+        return true;
+    }
+    
+    /// @func fail_with(result)
+    /// @desc Fails a task with the given failure cause.
+    /// @arg {Any} failure      The entity to indicate the cause of the failure.
+    /// @returns {Bool}
+    static fail_with = function(_failure) {
+        if (status > WaiterTaskStatus.Concluded)
+            return true;
+        
+        if (status != WaiterTaskStatus.Pending)
+            cleanup(WaiterTaskStatus.Failed);
+        
+        failure = _failure;
+        status = WaiterTaskStatus.Failed;
+        
+        var _task = self;
+        with (ctrl_WaiterOrderManager) {
+            reject_task(_task);
+        }
+        return true;
+    }
+    
     // -----------
     // Task status
     // -----------
@@ -87,16 +171,19 @@ function WaiterTask(_name = "Waiter Task") constructor {
         switch (status) {
             case WaiterTaskStatus.Pending:
                 return "Pending...";
+            
             case WaiterTaskStatus.Running:
             case WaiterTaskStatus.Delayed:
                 return get_progress_description();
             
-            case WaiterTaskStatus.Aborted:
-                return "Aborted!";
-            case WaiterTaskStatus.Failed:
-                return "Failed!";
             case WaiterTaskStatus.Successful:
                 return "Done!";
+            
+            case WaiterTaskStatus.Failed:
+                return "Failed!";
+            
+            case WaiterTaskStatus.Aborted:
+                return "Aborted!";
         }
     }
     
@@ -135,11 +222,11 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return status > WaiterTaskStatus.Concluded;
     }
     
-    /// @func is_aborted()
-    /// @desc Checks whether the task has been aborted.
+    /// @func is_successful()
+    /// @desc Checks whether the task has completed successfully.
     /// @returns {Bool}
-    static is_aborted = function() {
-        return status == WaiterTaskStatus.Aborted;
+    static is_successful = function() {
+        return status == WaiterTaskStatus.Successful;
     }
     
     /// @func is_failed()
@@ -149,54 +236,54 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return status == WaiterTaskStatus.Failed;
     }
     
-    /// @func is_successful()
-    /// @desc Checks whether the task has completed successfully.
+    /// @func is_aborted()
+    /// @desc Checks whether the task has been aborted.
     /// @returns {Bool}
-    static is_successful = function() {
-        return status == WaiterTaskStatus.Successful;
+    static is_aborted = function() {
+        return status == WaiterTaskStatus.Aborted;
     }
     
     // --------
     // Progress
     // --------
     
-    /// @func begin_progress_toward(target)
-    /// @desc Sets up the task for progress tracking, with the given value as the target.
-    /// @arg {Real} target          The progress target to reach.
-    static begin_progress_toward = function(_target) {
+    /// @func begin_progress_toward(total)
+    /// @desc Sets up the task for progress tracking, with the given value as the total value to reach.
+    /// @arg {Real} total           The total progress value to reach.
+    static begin_progress_toward = function(_total) {
         progress_current = 0;
-        progress_target = _target;
+        progress_total = _total;
     }
     
     /// @func get_progress_amount()
-    /// @desc Returns the fraction of the progress in relation to the total, or undefined if no progress target was specified.
+    /// @desc Returns the fraction of the progress in relation to the total, or undefined if no progress total was specified.
     /// @returns {Real,Undefined}
     static get_progress_amount = function() {
-        if (is_undefined(progress_target))
+        if (is_undefined(progress_total))
             return undefined;
         
-        return progress_current / progress_target;
+        return progress_current / progress_total;
     }
     
     /// @func get_progress_out_of_total()
-    /// @desc Returns a string representing the progress in the "current/total" format, or undefined if no progress target was specified.
+    /// @desc Returns a string representing the progress in the "current/total" format, or undefined if no progress total was specified.
     /// @returns {String,Undefined}
     static get_progress_out_of_total = function() {
-        if (is_undefined(progress_target))
+        if (is_undefined(progress_total))
             return undefined;
         
-        return $"{progress_current}/{progress_target}";
+        return $"{progress_current}/{progress_total}";
     }
     
     /// @func get_progress_percentage([precision])
-    /// @desc Returns a string representing the progress as a percentage, or undefined if no progress target was specified.
+    /// @desc Returns a string representing the progress as a percentage, or undefined if no progress total was specified.
     /// @arg {Real} precision       The number of decimal points shown.
     /// @returns {String,Undefined}
     static get_progress_percentage = function(_precision = 0) {
-        if (is_undefined(progress_target))
+        if (is_undefined(progress_total))
             return undefined;
         
-        return string_format(100 * progress_current / progress_target, 0, _precision) + "%";
+        return string_format(100 * progress_current / progress_total, 0, _precision) + "%";
     }
     
     // ------------
@@ -276,90 +363,6 @@ function WaiterTask(_name = "Waiter Task") constructor {
         return status > WaiterTaskStatus.Concluded;
     }
     
-    // ----------------
-    // Process outcomes
-    // ----------------
-    
-    // these functions can be used as returns in the "process" function
-    // to signal the whether the task is concluded or not
-    // and update the progress/success/failure status accordingly
-    
-    /// @func proceed()
-    /// @desc Indicates that the task should proceed to the next step as soon as permitted.
-    /// @returns {Bool}
-    static proceed = function() {
-        return false;
-    }
-    
-    /// @func proceed_later()
-    /// @desc Indicates that the task should continue during the next run.
-    /// @returns {Bool}
-    static proceed_later = function() {
-        status = WaiterTaskStatus.Delayed;
-        return false;
-    }
-    
-    /// @func progress_to(quantity)
-    /// @desc Indicates that the task should proceed and also updates the progress quantity with the given value.
-    /// @arg {Real} quantity    The new progress quantity to set.
-    /// @returns {Bool}
-    static progress_to = function(_quantity) {
-        progress_current = _quantity;
-        return false;
-    }
-    
-    /// @func progress_by(quantity)
-    /// @desc Indicates that the task should proceed and also increases the progress quantity by the given value.
-    /// @arg {Real} quantity    The quantity to increase the progress by.
-    /// @returns {Bool}
-    static progress_by = function(_quantity) {
-        progress_current += _quantity;
-        return false
-    }
-    
-    /// @func succeed_with(result)
-    /// @desc Finishes a task successfully with the given result.
-    /// @arg {Any} result       The final result of the task.
-    /// @returns {Bool}
-    static succeed_with = function(_result) {
-        if (status > WaiterTaskStatus.Concluded)
-            return true;
-        
-        if (status != WaiterTaskStatus.Pending)
-            cleanup(WaiterTaskStatus.Successful);
-        
-        result = _result;
-        status = WaiterTaskStatus.Successful;
-        progress_current = progress_target;
-        
-        var _task = self;
-        with (ctrl_WaiterOrderManager) {
-            resolve_task(_task);
-        }
-        return true;
-    }
-    
-    /// @func fail_with(result)
-    /// @desc Fails a task with the given failure cause.
-    /// @arg {Any} failure      The entity to indicate the cause of the failure.
-    /// @returns {Bool}
-    static fail_with = function(_failure) {
-        if (status > WaiterTaskStatus.Concluded)
-            return true;
-        
-        if (status != WaiterTaskStatus.Pending)
-            cleanup(WaiterTaskStatus.Failed);
-        
-        failure = _failure;
-        status = WaiterTaskStatus.Failed;
-        
-        var _task = self;
-        with (ctrl_WaiterOrderManager) {
-            reject_task(_task);
-        }
-        return true;
-    }
-    
     /// @func abort()
     /// @desc Aborts the task so that it's not executed anymore.
     /// @returns {Bool}
@@ -376,7 +379,6 @@ function WaiterTask(_name = "Waiter Task") constructor {
         with (ctrl_WaiterOrderManager) {
             cancel_task_orders(_task);
         }
-        return true;
     }
     
     // ------
