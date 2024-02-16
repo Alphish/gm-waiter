@@ -3,13 +3,13 @@
 // underlying tasks processing queue
 queue = new WaiterTaskQueue();
 
-// estimated next frame time in microseconds, adjusted with runtime margin
+// estimated next frame time in microseconds, adjusted with frame margin
 // the task processor will aim to finish a batch before then
 next_frame_time = get_timer();
 
-// -------
-// Methods
-// -------
+// --------------
+// Managing tasks
+// --------------
 
 // adds a task to the processing queue
 enqueue = function(_task, _priority = 0) {
@@ -31,24 +31,29 @@ has_task = function(_task) {
     return queue.has_task(_task);
 }
 
+// ----------
+// Processing
+// ----------
+
 // estimates the time the next frame should be beginning
-// it adjusts the time by runtime margin to leave some leeway
+// it adjusts the time by frame margin to leave some leeway
 // and prevent framerate inconsistencies
 estimate_next_frame_time = function() {
     var _current_frame_time = get_timer();
     var _frame_duration = game_get_speed(gamespeed_microseconds);
-    var _runtime_margin_us = round(1000 * runtime_margin);
-    next_frame_time = _current_frame_time + _frame_duration - _runtime_margin_us;
+    next_frame_time = _current_frame_time + _frame_duration;
 }
 
 // runs the ongoing tasks in the queue, if any
 // it aims to perform as much processing as possible until the next frame time
 // while not running for so long to adversely affect the framerate
 process_ongoing_tasks = function() {
+    var _frame_margin_us = round(1000 * frame_margin);
+    var _min_duration_us = round(1000 * min_duration);
+    var _max_duration_us = round(1000 * max_duration);
+    
     var _current_time = get_timer();
-    var _remaining_time = next_frame_time - _current_time;
-    var _min_runtime_us = round(1000 * min_runtime);
-    var _max_runtime_us = round(1000 * max_runtime);
-    var _target_time = _current_time + clamp(_remaining_time, _min_runtime_us, _max_runtime_us);
+    var _remaining_time = next_frame_time - _frame_margin_us - _current_time;
+    var _target_time = _current_time + clamp(_remaining_time, _min_duration_us, _max_duration_us);
     queue.run_batch_until(_target_time, min_repeats);
 }
